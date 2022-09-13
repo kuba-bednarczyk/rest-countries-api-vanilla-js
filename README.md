@@ -96,3 +96,12 @@ We love receiving feedback! We're always looking to improve our challenges and o
 This challenge is completely free. Please share it with anyone who will find it useful for practice.
 
 **Have fun building!** 🚀
+
+1. Setup
+2. Data fetching
+3. Country thumbnail component
+4. Filters
+5. Finalize styling	
+6. Routing -> detail
+7. detail component
+8. Dark theme (?)
