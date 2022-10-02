@@ -12,23 +12,36 @@ const createInfoElement = (labelName, value) => {
   return infoElement;
 };
 
+const createFlagImgElement = country => {
+  const imgContainer = document.createElement('div');
+  const imgElement = document.createElement('img');
+  imgElement.src = country.flagUrl;
+  imgElement.alt = `${country.name} flag`;
+
+  imgContainer.appendChild(imgElement);
+
+  return imgContainer;
+};
+
 const createCountryItemElement = country => {
   const countryElement = document.createElement("li");
-  const countryNameElement = document.createElement('div');
+  countryElement.appendChild(createFlagImgElement(country));
+  
+  const infoContainerElement = document.createElement('div');
+  infoContainerElement.classList.add('info-container');
 
-  //show country name
+  const countryNameElement = document.createElement('strong');
   countryNameElement.innerText = country.name;
-  countryElement.appendChild(countryNameElement);
-  // show informations for the country box
-  countryElement.appendChild(createInfoElement("population", country.population));
-  countryElement.appendChild(countryNameElement);
+  countryNameElement.classList.add('country-name');
+
+  infoContainerElement.appendChild(countryNameElement);
+
+  infoContainerElement.appendChild(createInfoElement("population", country.population));
+  infoContainerElement.appendChild(createInfoElement("region", country.region));
+  infoContainerElement.appendChild(createInfoElement("capital", country.capital));
   
-  countryElement.appendChild(createInfoElement("region", country.region));
-  countryElement.appendChild(countryNameElement);
-  
-  countryElement.appendChild(createInfoElement("capital", country.capital));
-  countryElement.appendChild(countryNameElement);
-  
+  countryElement.appendChild(infoContainerElement);
+
   return countryElement;
 };
 
@@ -42,5 +55,6 @@ const createListElement = (countries) => {
 
 export const renderCountriesList = (countries) => {
   const rootElement = document.querySelector('#root');
+  rootElement.innerHTML = '';
   rootElement.appendChild(createListElement(countries));
 };
