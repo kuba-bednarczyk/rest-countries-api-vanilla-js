@@ -15,7 +15,7 @@ const createInfoElement = (labelName, value) => {
 const createFlagImgElement = country => {
   const imgContainer = document.createElement('div');
   const imgElement = document.createElement('img');
-  imgElement.src = country.flagUrl;
+  imgElement.src = country.flagUrl; 
   imgElement.alt = `${country.name} flag`;
 
   imgContainer.appendChild(imgElement);
@@ -25,7 +25,10 @@ const createFlagImgElement = country => {
 
 const createCountryItemElement = country => {
   const countryElement = document.createElement("li");
-  countryElement.appendChild(createFlagImgElement(country));
+
+  const anchorElement = document.createElement("a");
+  anchorElement.href = `?country=${country.name}`;
+  anchorElement.appendChild(createFlagImgElement(country));
   
   const infoContainerElement = document.createElement('div');
   infoContainerElement.classList.add('info-container');
@@ -40,7 +43,8 @@ const createCountryItemElement = country => {
   infoContainerElement.appendChild(createInfoElement("region", country.region));
   infoContainerElement.appendChild(createInfoElement("capital", country.capital));
   
-  countryElement.appendChild(infoContainerElement);
+  anchorElement.appendChild(infoContainerElement);
+  countryElement.appendChild(anchorElement);
 
   return countryElement;
 };

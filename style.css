@@ -70,6 +70,8 @@ header button {
   box-shadow: 1px 9px 24px 0px rgba(66, 68, 90, 0.7);
 }
 
+#query, #region {border-radius: 10px}
+
 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -81,6 +83,11 @@ li {
   box-shadow: 1px 9px 24px 0px rgba(66, 68, 90, 0.7);
   border-radius: 10px;
   overflow: hidden;
+}
+
+li a {
+  text-decoration: none;
+  color: var(--color-text-lt);
 }
 
 li img {
