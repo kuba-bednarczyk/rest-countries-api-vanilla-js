@@ -1,3 +1,4 @@
+// tworzy pojedynczy element informacji z etykieta i wartoscia
 const createInfoElement = (labelName, value) => {
   const infoElement = document.createElement("div");
 
@@ -12,6 +13,7 @@ const createInfoElement = (labelName, value) => {
   return infoElement;
 };
 
+//tworzenie elementu obrazu flagi
 const createFlageImgElement = (country) => {
   const imgContainerElement = document.createElement("div");
   const imgElement = document.createElement("img");
@@ -23,6 +25,7 @@ const createFlageImgElement = (country) => {
   return imgContainerElement;
 };
 
+// tworzenie elementu listy kraju, zawiera: link - kieruje do widoku detali, flage i podstawowe informacje: nazwa, populacja, region, stolica
 const createCountryItemElement = (country) => {
   const countryElement = document.createElement("li");
 
@@ -57,6 +60,7 @@ const createCountryItemElement = (country) => {
   return countryElement;
 };
 
+// tworzy tag ul do ktorego dodawane sa elementy kraju
 const createListElement = (countries) => {
   const listElement = document.createElement("ul");
   countries.forEach((country) => {
@@ -66,6 +70,7 @@ const createListElement = (countries) => {
   return listElement;
 };
 
+// tworzy widok ze szczegolowymi informacjami na temat kraju
 const createDetailElement = (country) => {
   const detailContainerElement = document.createElement("div");
 
@@ -123,6 +128,7 @@ const createDetailElement = (country) => {
   return detailContainerElement;
 };
 
+//tworzy przycisk ktory pozwala na powrot do widoku glownego
 const createDetailButton = (text, link) => {
   const anchorElement = document.createElement("a");
   anchorElement.innerText = text;
@@ -132,6 +138,7 @@ const createDetailButton = (text, link) => {
   return anchorElement;
 };
 
+// tworzy kontener z kodami krajow graniczacych z danym krajem 
 const createBorderCountriesContainer = (country) => {
   const borderCountriesContainerElement = document.createElement("div");
   borderCountriesContainerElement.classList.add("border-countries-container");
@@ -149,12 +156,15 @@ const createBorderCountriesContainer = (country) => {
   return borderCountriesContainerElement;
 };
 
+//renderuje Liste krajow do widoku
 export const renderCountriesList = (countries) => {
   const rootElement = document.querySelector("#root");
   rootElement.innerHTML = "";
   rootElement.appendChild(createListElement(countries));
 };
 
+
+//renderuje widok szczegolowy kraju 
 export const renderCountryDetails = (country) => {
   const rootElement = document.querySelector("#root");
   rootElement.innerHTML = "";
